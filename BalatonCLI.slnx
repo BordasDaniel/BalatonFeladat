@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="BalatonCLI.Tests/BalatonCLI.Tests.csproj" />
+  <Project Path="BalatonCLI/BalatonCLI.csproj" />
+  <Project Path="BalatonWPF/BalatonWPF.csproj" />
+</Solution>
