@@ -51,6 +51,8 @@
                     Height="40" 
                     Margin="10,10,10,10"
                     Click="MentesButton_Click"/>
+            <Button x:Name="btnModify" Content="Modify" Margin="10,10,10,10" Click="btnModify_Click"
+                    />
         </StackPanel>
     </Grid>
 </Window>

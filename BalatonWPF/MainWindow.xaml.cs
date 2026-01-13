@@ -18,13 +18,18 @@ namespace BalatonWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        private ObservableCollection<Haz> hazak = new ObservableCollection<Haz>();
+        private static ObservableCollection<Haz> hazak = new ObservableCollection<Haz>();
 
         public MainWindow()
         {
             InitializeComponent();
             Beolvas();
             telkekDataGrid.ItemsSource = hazak;
+        }
+
+        public static void SetModify(Haz haz, int index)
+        {
+            hazak[index] = haz;
         }
 
         private void Beolvas()
@@ -91,6 +96,18 @@ namespace BalatonWPF
             {
                 MessageBox.Show(ex.Message, "Hiba", 
                     MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void btnModify_Click(object sender, RoutedEventArgs e)
+        {
+            ModifyWindow modifyWindow = new(hazak[telkekDataGrid.SelectedIndex]);
+            if (modifyWindow.ShowDialog() == true)
+            {
+                int index = telkekDataGrid.SelectedIndex;
+                Haz haz = modifyWindow.ModositottHaz;
+                SetModify(haz, index);
+                telkekDataGrid.Items.Refresh();
             }
         }
     }
